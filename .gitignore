@@ -1,0 +1,8 @@
+# OS Files
+.DS_Store
+Thumbs.db
+*.log
+
+# Python / Cache if any
+__pycache__/
+*.pyc

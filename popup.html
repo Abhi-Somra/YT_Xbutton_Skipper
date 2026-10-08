@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube Mouse XButton Skipper</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-area">
+        <div class="logo-icon">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="#ff0033">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/>
+          </svg>
+        </div>
+        <div>
+          <h1>YT XButton Skipper</h1>
+          <span class="version">v1.0.0</span>
+        </div>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="enabled">
+        <span class="slider round"></span>
+      </label>
+    </header>
+
+    <!-- Interactive Mouse Button Tester -->
+    <div class="card tester-card" id="testerCard">
+      <div class="tester-title">
+        <span class="dot"></span> Mouse Button Live Tester
+      </div>
+      <div class="tester-instruction" id="testerStatus">Click your mouse side buttons here to test!</div>
+      <div class="mouse-preview">
+        <div class="mouse-body">
+          <div class="mouse-btn-back" id="previewBtn4">M4</div>
+          <div class="mouse-btn-fwd" id="previewBtn5">M5</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Configuration Options -->
+    <section class="section">
+      <div class="section-title">Button Mapping</div>
+
+      <!-- Mouse 4 Action -->
+      <div class="form-group">
+        <label for="xbutton1_action">
+          <span class="btn-badge">Mouse 4 (Back)</span>
+        </label>
+        <div class="select-wrapper">
+          <select id="xbutton1_action">
+            <option value="seek_backward">⏪ Seek Backward</option>
+            <option value="seek_forward">⏩ Seek Forward</option>
+            <option value="prev_video">⏮️ Previous Video</option>
+            <option value="next_video">⏭️ Next Video</option>
+            <option value="prev_chapter">⏮️ Previous Chapter</option>
+            <option value="next_chapter">⏭️ Next Chapter</option>
+            <option value="play_pause">⏯️ Play / Pause</option>
+            <option value="volume_down">🔉 Volume Down</option>
+            <option value="volume_up">🔊 Volume Up</option>
+            <option value="speed_toggle">⚡ Cycle Playback Speed</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Mouse 5 Action -->
+      <div class="form-group">
+        <label for="xbutton2_action">
+          <span class="btn-badge fwd">Mouse 5 (Forward)</span>
+        </label>
+        <div class="select-wrapper">
+          <select id="xbutton2_action">
+            <option value="seek_forward">⏩ Seek Forward</option>
+            <option value="seek_backward">⏪ Seek Backward</option>
+            <option value="next_video">⏭️ Next Video</option>
+            <option value="prev_video">⏮️ Previous Video</option>
+            <option value="next_chapter">⏭️ Next Chapter</option>
+            <option value="prev_chapter">⏮️ Previous Chapter</option>
+            <option value="play_pause">⏯️ Play / Pause</option>
+            <option value="volume_up">🔊 Volume Up</option>
+            <option value="volume_down">🔉 Volume Down</option>
+            <option value="speed_toggle">⚡ Cycle Playback Speed</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Skip Duration -->
+      <div class="form-group">
+        <label for="skip_seconds">
+          <span>Seek Step Duration</span>
+          <span class="val-badge" id="skipSecondsDisplay">5s</span>
+        </label>
+        <div class="range-container">
+          <input type="range" id="skip_seconds" min="1" max="60" step="1" value="5">
+          <div class="ticks">
+            <span>1s</span>
+            <span>5s</span>
+            <span>10s</span>
+            <span>30s</span>
+            <span>60s</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Additional Toggles -->
+    <section class="section">
+      <div class="section-title">Preferences</div>
+
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <span class="toggle-title">Block Browser History Navigation</span>
+          <span class="toggle-desc">Stops Brave/Chrome from going back/forward pages</span>
+        </div>
+        <label class="switch small">
+          <input type="checkbox" id="prevent_history_navigation">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <span class="toggle-title">Show On-Screen OSD Badge</span>
+          <span class="toggle-desc">Displays sleek HUD feedback when action triggers</span>
+        </div>
+        <label class="switch small">
+          <input type="checkbox" id="show_osd">
+          <span class="slider round"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <span class="toggle-title">Support YouTube Shorts</span>
+          <span class="toggle-desc">Enable side-button controls in Shorts player</span>
+        </div>
+        <label class="switch small">
+          <input type="checkbox" id="enable_shorts">
+          <span class="slider round"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <span class="status-msg" id="statusMsg">Settings auto-saved</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
